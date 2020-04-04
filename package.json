@@ -1,0 +1,17 @@
+{
+  "name": "a1-abilities",
+  "version": "1.0.0",
+  "description": "uploader",
+  "main": "src/index.js",
+  "author": "Mukesh Purohit",
+  "license": "self",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.5",
+    "cors": "^2.8.5",
+    "express": "^4.16.3",
+    "multer": "^1.4.2"
+  }
+}
