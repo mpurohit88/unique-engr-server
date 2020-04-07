@@ -184,10 +184,10 @@ function validate()
                     <div class="contact-form">
                         <h2>Fill the form below to contact us</h2>
 						
-		<form action="contact-us.php" method="post" name="form1">
+		<form action="/api/sendEmail" method="post" name="form1">
 			<span class="form_text"><span>Name*</span><input name="name" placeholder="Name" type="text" /></span>
 			<span class="form_text"><span>Email</span><input name="email" placeholder="Email Id" type="text" /></span>
-			<span class="form_text"><span>Phone</span><input name="phone" placeholder="Phone" type="text" /></span>
+			<span class="form_text"><span>Phone</span><input name="number" placeholder="Phone" type="text" /></span>
 			<span class="form_text"><span>Address</span><input name="address" placeholder="Address" type="text" class="area" value="" /></span>
 			<span class="form_text"><span>Message</span><textarea name="message" placeholder="Message" class="area"></textarea></span>
 			<input type="submit" class="button btncolor" onClick="return validate()" value="Send"/>

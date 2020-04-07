@@ -3,14 +3,14 @@ sgMail.setApiKey('SG.VpThr0ulTIuZ7dejx2Cvog.QkQvWYP-y_lYxG_8TDooddlNznGYv7S_X-HQ
 
 let contactUsEmail = (body) => {
     const msg = {
-        to: 'info@cajaindhingra.com',
+        to: 'info@unique-engr.com',
         from: {
-            email: "info@cajaindhingra.com",
-            name: "cajaindhingra"
+            email: "info@unique-engr.com",
+            name: "UNIQUE ENGINEERS"
         },
         subject: body.subject,
         text: body.message,
-        html: 'Subject: ' + body.subject + ' <br />Message: ' + body.message + ' <br />mobileNo: ' + body.phone + ' <br />email address: ' + body.email + ' <br />name: ' + body.name,
+        html: 'Address: ' + body.address + ' <br />Message: ' + body.message + ' <br />mobileNo: ' + body.number + ' <br />email address: ' + body.email + ' <br />name: ' + body.name,
     };
     try {
         sgMail.send(msg);
