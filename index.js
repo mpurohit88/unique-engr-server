@@ -51,10 +51,11 @@ app.use('/api/upload', function (req, res, next) {
   }
 });
 
-const mailer = require('./mailer');
+const Mailer = require('./mailer');
 
 app.post('/api/sendEmail', async function (req, res, next) {
-  const result = await mailer.contactUsEmail(req.body);
+  const mailer = new Mailer(req.body);
+  const result = await mailer.sendEmail(req.body);
   res.send("email send");
 });
 

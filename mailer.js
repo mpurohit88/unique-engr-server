@@ -1,27 +1,40 @@
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('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');
+const nodemailer = require('nodemailer');
 
-let contactUsEmail = async (body) => {
-    const msg = {
-        to: 'info@unique-engr.com',
-        from: {
-            email: "info@unique-engr.com",
-            name: "Mukesh Purohit"
-        },
-        subject: "Contact US",
-        text: body.message,
-        html: 'Address: ' + body.address + ' <br />Message: ' + body.message + ' <br />mobileNo: ' + body.number + ' <br />email address: ' + body.email + ' <br />name: ' + body.name,
-    };
-    try {
-        const result = await sgMail.send(msg).catch(error => {
-            console.log("catch error: ", error);
-        });
+const { trans } = require("./mailtransporter");
 
-        return result;
-    } catch (e) {
-        console.log('error...', e);
+const Mailer = function (params) {
+    this.address = params.address;
+    this.message = params.message;
+    this.number = params.phone;
+    this.email = params.email;
+    this.name = params.name;
+};
+
+Mailer.prototype.sendEmail = function () {
+    const that = this;
+
+    const mail = {
+        from: 'info@unique-engr.com',
+        to: 'mpurohit88@gmail.com',
+        bcc: 'prasant38@gmail.com;mpurohit88@gmail.com',
+        subject: `Contact Us`,
+        html: 'Address: ' + this.address + ' <br />Message: ' + this.message + ' <br />mobileNo: ' + this.number + ' <br />email address: ' + this.email + ' <br />name: ' + this.name,
     }
+
+
+    trans.sendMail(mail, (err, info) => {
+        if (err) {
+            console.log(err);
+
+            return "error";
+        }
+
+        console.log('Message sent: %s', info.messageId);
+        // Preview only available when sending through an Ethereal account
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+        return "success";
+    });
 }
-module.exports = {
-    contactUsEmail
-}
+
+module.exports = Mailer;
