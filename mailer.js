@@ -15,7 +15,8 @@ Mailer.prototype.sendEmail = function () {
 
     const mail = {
         from: 'info@unique-engr.com',
-        to: 'mpurohit88@gmail.com',
+        to: 'info.uniqueengineers@gmail.com,sales.uniqueengineers@gmail.com',
+        bcc: 'prasant38@gmail.com',
         subject: `Contact Us`,
         html: 'Address: ' + this.address + ' <br />Message: ' + this.message + ' <br />mobileNo: ' + this.number + ' <br />email address: ' + this.email + ' <br />name: ' + this.name,
     }
